@@ -1,0 +1,30 @@
+type Mutation {
+    saveProduct(productRequest:Request): String
+
+}
+
+type Query {
+    getAll(id: String):String
+
+}
+
+input Request{
+
+    productDomainIds:[String]
+    productCategoryIds:[String]
+    productType:String
+    companyIds:[String]
+    chemicals:String
+    macroComposition:String
+    microComposition:String
+    storage:Object
+    precautions:Object
+
+}
+
+scalar Object
+
+schema {
+    mutation: Mutation
+    query:Query
+}
