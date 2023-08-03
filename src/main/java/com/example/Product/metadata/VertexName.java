@@ -14,9 +14,10 @@ public class VertexName {
     public static final String TEHSIL = "tehsils";
 
     public static final String VILLAGE = "villages";
-    public static final String FILE = "files";
+    public static final String FILE = "file";
     public static final String NEWS_COMMENTS = "newsComments";
     public static final String PRODUCT_DOMAIN = "productDomains";
+
 
     public static List<String> namesAsList() {
         Class<VertexName> vertexNameClass = VertexName.class;
