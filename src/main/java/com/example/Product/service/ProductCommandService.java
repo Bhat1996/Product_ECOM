@@ -65,14 +65,7 @@ public class ProductCommandService {
                 return productHasCompany;
             }).toList();
 
-            List<ProductHasDomain> productHasDomains = productDomainIds.stream().map(productCategoryId -> {
-                ProductHasDomain productHasDomain = new ProductHasDomain();
-                productHasDomain.set_from(productDomains.getArangoId());
-                productHasDomain.set_to(productCategoryId);
-                productHasDomain.setCreatedDate(LocalDateTime.now());
-                productHasDomain.setModifiedDate(LocalDateTime.now());
-                return productHasDomain;
-            }).toList();
+            List<ProductHasDomain> productHasDomains = getProductHasDomains(productDomainIds, productDomains);
 
             List<ProductHasCategory> productHasCategories = productCategoryIds.stream().map(productCategoryId -> {
                 ProductHasCategory productHasCategory = new ProductHasCategory();
@@ -103,6 +96,17 @@ public class ProductCommandService {
 
     }
 
+    private static List<ProductHasDomain> getProductHasDomains(List<String> productDomainIds, ProductDomains productDomains) {
+        List<ProductHasDomain> productHasDomains = productDomainIds.stream().map(productCategoryId -> {
+            ProductHasDomain productHasDomain = new ProductHasDomain();
+            productHasDomain.set_from(productDomains.getArangoId());
+            productHasDomain.set_to(productCategoryId);
+            productHasDomain.setCreatedDate(LocalDateTime.now());
+            productHasDomain.setModifiedDate(LocalDateTime.now());
+            return productHasDomain;
+        }).toList();
+        return productHasDomains;
+    }
 
 
 }

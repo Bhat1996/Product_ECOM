@@ -26,3 +26,17 @@ arango:
    user: root
    password: 8080
    max.connection: 100
+
+redis:
+  host: localhost
+  port: 6379
+  database: 0
+  timeout: 60
+  password:
+  cache:
+    default:
+      duration: 2400
+    list:
+      -
+        name: matcher1
+        duration: 600
